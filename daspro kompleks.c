@@ -134,7 +134,7 @@ void login() {
     for (int i = 0; i < userCount; i++) {
         if (strcmp(users[i].username, username) == 0 && strcmp(users[i].password, password) == 0) {
             found = 1;
-            isLoggedIn = true; // Tandai pengguna sudah login
+            isLoggedIn = true; 
             printf("Login berhasil! Selamat datang, %s.\n", username);
             return;
         }
@@ -268,10 +268,8 @@ void BacaDataDariFile() {
         float nilai;
         char parameter[5];
 
-        // Membaca satu baris data
         int hasil = fscanf(file, "%s %d %f %s", nama, &nis, &nilai, parameter);
 
-        // Filter: hanya data dengan format lengkap yang diolah
         if (hasil == 4 && nis > 0 && nilai > 0) {
             strcpy(dataSiswa[jumlahSiswa].nama, nama);
             dataSiswa[jumlahSiswa].nis = nis;
@@ -287,8 +285,8 @@ void BacaDataDariFile() {
 
 void logout() {
     system("cls || clear");
-    if (isLoggedIn) { // Cek apakah pengguna sudah login
-        isLoggedIn = false; // Set status login menjadi false
+    if (isLoggedIn) { 
+        isLoggedIn = false; 
         printf("Logout berhasil! Anda telah keluar dari sistem.\n");
     } else {
         printf("Anda belum login.\n");
