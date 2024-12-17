@@ -59,11 +59,6 @@ void menu() {
 }
 
 void hitungParameter(float nilai, char *parameter) {
-    if (!isLoggedIn) { // Cek apakah pengguna sudah login
-        printf("Anda harus login terlebih dahulu untuk menghitung parameter!\n");
-        return; // Keluar dari fungsi jika belum login
-    }
-
     if (nilai >= 85) strcpy(parameter, "A");
     else if (nilai >= 80) strcpy(parameter, "A-");
     else if (nilai >= 75) strcpy(parameter, "B+");
@@ -75,11 +70,6 @@ void hitungParameter(float nilai, char *parameter) {
 }
 
 void tambahData() {
-    if (!isLoggedIn) { // Cek apakah pengguna sudah login
-        printf("Anda harus login terlebih dahulu untuk menambah data!\n");
-        return; // Keluar dari fungsi jika belum login
-    }
-
     if (jumlahSiswa < MAX_SISWA) {
         printf("Masukkan Nama\t\t\t: ");
         scanf(" %[^\n]", dataSiswa[jumlahSiswa].nama);
@@ -156,11 +146,6 @@ void login() {
 }
 
 void hapusData() {
-    if (!isLoggedIn) {
-        printf("Anda harus login terlebih dahulu untuk menghapus data!\n");
-        return;
-    }
-
     int nis, i, j, found = 0;
     printf("Masukkan NIS yang ingin dihapus\t: ");
     scanf("%d", &nis);
@@ -180,12 +165,7 @@ void hapusData() {
 }
 
 void lihatData() {
-    if (!isLoggedIn) { // Cek apakah pengguna belum login
-        printf("Anda harus login terlebih dahulu untuk melihat data!\n");
-        return; // Keluar dari fungsi
-    }
-
-    printf("\n================================================== Data Siswa ===============================================\n");
+        printf("\n================================================== Data Siswa ===============================================\n");
     printf("No\t\t\tNama\t\t\tNIS\t\t\tNilai\t\t\tParameter\n");
     printf("+------------------------------------------------------------------------------------------------------------+\n");
     for (int i = 0; i < jumlahSiswa; i++) {
@@ -194,12 +174,7 @@ void lihatData() {
 }
 
 void cariData() {
-    if (!isLoggedIn) { // Cek apakah pengguna belum login
-        printf("Anda harus login terlebih dahulu untuk mencari data!\n");
-        return; // Keluar dari fungsi
-    }
-
-    int nis, found = 0;
+        int nis, found = 0;
     printf("Masukkan NIS yang dicari\t: ");
     scanf("%d", &nis);
 
@@ -215,11 +190,6 @@ void cariData() {
 }
 
 void urutkanData() {
-    if (!isLoggedIn) { // Cek apakah pengguna belum login
-        printf("Anda harus login terlebih dahulu untuk mengurutkan data!\n");
-        return; // Keluar dari fungsi
-    }
-
     siswa temp;
     for (int i = 0; i < jumlahSiswa - 1; i++) {
         for (int j = 0; j < jumlahSiswa - i - 1; j++) {
@@ -234,12 +204,7 @@ void urutkanData() {
 }
 
 void hitungRataRata() {
-    if (!isLoggedIn) { // Cek apakah pengguna belum login
-        printf("Anda harus login terlebih dahulu untuk menghitung rata-rata nilai!\n");
-        return; // Keluar dari fungsi
-    }
-
-    float total = 0.0;
+       float total = 0.0;
     for (int i = 0; i < jumlahSiswa; i++) {
         total += dataSiswa[i].nilai;
     }
@@ -286,11 +251,6 @@ void SimpanDatakedalamFile() {
 }
 
 void BacaDataDariFile() {
-    if (!isLoggedIn) {
-        printf("Anda harus login terlebih dahulu untuk membaca data dari file!\n");
-        return;
-    }
-
     char namaFile[50];
     printf("Masukkan nama file yang ingin dibaca (contoh: data_siswa.txt): ");
     scanf(" %[^\n]", namaFile);
