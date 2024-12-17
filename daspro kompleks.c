@@ -97,7 +97,6 @@ void signIn() {
     printf("Masukkan username baru\t\t: ");
     scanf("%s", username);
 
-    // Validasi: Periksa apakah username sudah ada
     for (int i = 0; i < userCount; i++) {
         if (strcmp(users[i].username, username) == 0) {
             usernameExists = 1;
@@ -213,12 +212,7 @@ void hitungRataRata() {
 }
 
 void SimpanDatakedalamFile() {
-    if (!isLoggedIn) { // Cek apakah pengguna belum login
-        printf("Anda harus login terlebih dahulu untuk menyimpan data ke file!\n");
-        return; // Keluar dari fungsi
-    }
-
-    char namaFile[50];
+     char namaFile[50];
     FILE *file;
 
     if (jumlahSiswa == 0) {
